@@ -4,7 +4,7 @@
 Summary:	Test::Harness perl module
 Summary(pl):	Modu³ perla Test::Harness
 Name:		perl-%{pdir}-%{pnam}
-Version:	2.21
+Version:	2.26
 Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
