@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Test
-%define	pnam	Harness
+%define		pdir	Test
+%define		pnam	Harness
 Summary:	Test::Harness Perl module
 Summary(cs):	Modul Test::Harness pro Perl
 Summary(da):	Perlmodul Test::Harness
@@ -102,7 +102,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes NOTES TODO
-#%{perl_privlib}/Test/Harness.pm
-#%{perl_privlib}/Test/Harness
 %{perl_privlib}/Test	
 %{_mandir}/man3/*
