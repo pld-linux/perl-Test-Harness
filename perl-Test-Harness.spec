@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests	# perform "make test"
-#
+
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Test
 %define		pnam	Harness
 Summary:	Test::Harness - run perl standard test scripts with statistics
 Summary(pl):	Test::Harness - uruchamianie perlowych skryptów testowych ze statystykami
 Name:		perl-Test-Harness
-Version:	2.36
+Version:	2.38
 Release:	1
-License:	GPL
+License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	e9c0312789d1719e3d00ffc6362e09d3
+# Source0-md5:	f5c9097bcfdbcd7a158c351d8ae864c9
 BuildRequires:	perl-devel >= 5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
