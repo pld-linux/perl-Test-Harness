@@ -1,7 +1,8 @@
 #
 # Conditional build:
 %bcond_with	tests	# perform "make test"
-
+			# why tests fail ?
+#
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Test
 %define		pnam	Harness
@@ -10,7 +11,8 @@ Summary(pl):	Test::Harness - uruchamianie perlowych skryptów testowych ze statys
 Name:		perl-Test-Harness
 Version:	2.42
 Release:	1
-License:	GPL or Artistic
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	55d7ec790710b7e72d655ba11973366f
