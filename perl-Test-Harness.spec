@@ -5,7 +5,7 @@ Summary:	Test-Harness perl module
 Summary(pl):	Modu³ perla Test-Harness
 Name:		perl-%{pdir}-%{pnam}
 Version:	2.01
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -16,8 +16,12 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+Test::Harness - module that runs perl standard test scripts with
+statistics.
 
 %description -l pl
+Test::Harness - modu³ uruchamiaj±cy standardowe perlowe skrypty
+testowe ze statystykami.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
