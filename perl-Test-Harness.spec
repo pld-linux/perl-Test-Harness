@@ -1,11 +1,11 @@
+%include	/usr/lib/rpm/macros.perl
 %define	pdir	Test
 %define	pnam	Harness
-%include	/usr/lib/rpm/macros.perl
 Summary:	Test-Harness perl module
 Summary(pl):	Modu³ perla Test-Harness
 Name:		perl-%{pdir}-%{pnam}
 Version:	2.01
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
