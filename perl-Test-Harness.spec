@@ -5,7 +5,7 @@
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Test
 %define		pnam	Harness
-Summary:	Test::Harness - run perl standard test scripts with statistics
+Summary:	Test::Harness - run Perl standard test scripts with statistics
 Summary(pl):	Test::Harness - uruchamianie perlowych skryptów testowych ze statystykami
 Name:		perl-Test-Harness
 Version:	2.40
