@@ -8,12 +8,12 @@
 Summary:	Test::Harness - run perl standard test scripts with statistics
 Summary(pl):	Test::Harness - uruchamianie perlowych skryptów testowych ze statystykami
 Name:		perl-Test-Harness
-Version:	2.38
+Version:	2.40
 Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	f5c9097bcfdbcd7a158c351d8ae864c9
+# Source0-md5:	a7f10313231909a20e37f224114da762
 BuildRequires:	perl-devel >= 5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
@@ -54,6 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes NOTES
 %attr(755,root,root) %{_bindir}/prove
-%{perl_vendorlib}/Test/*
+%{perl_vendorlib}/%{pdir}/*
 %{_mandir}/man1/*
 %{_mandir}/man3/*
