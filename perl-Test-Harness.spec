@@ -6,7 +6,7 @@
 %define		pdir	Test
 %define		pnam	Harness
 Summary:	Test::Harness - run perl standard test scripts with statistics
-Summary(pl):	Test::Harness - uruchom standardowe perlowe skrypty testowe ze statystykami
+Summary(pl):	Test::Harness - uruchamianie perlowych skryptów testowych ze statystykami
 Name:		perl-Test-Harness
 Version:	2.26
 Release:	3
