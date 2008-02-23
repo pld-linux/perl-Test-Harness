@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Test::Harness - uruchamianie perlowych skryptów testowych ze
 Name:		perl-Test-Harness
 # NOTE: version 2.64 in perl-modules-5.10.0
 Version:	3.09
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -46,13 +46,15 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv $RPM_BUILD_ROOT%{_bindir}/prove{,.pl}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc Changes*
-%attr(755,root,root) %{_bindir}/prove
+%attr(755,root,root) %{_bindir}/prove.pl
 %{perl_vendorlib}/App/*
 %{perl_vendorlib}/Test/*
 %{perl_vendorlib}/TAP/*
