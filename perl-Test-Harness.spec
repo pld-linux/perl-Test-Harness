@@ -8,6 +8,7 @@
 Summary:	Test::Harness - run Perl standard test scripts with statistics
 Summary(pl.UTF-8):	Test::Harness - uruchamianie perlowych skryptów testowych ze statystykami
 Name:		perl-Test-Harness
+# NOTE: version 2.64 in perl-modules-5.10.0
 Version:	3.17
 Release:	1
 # same as perl
@@ -33,21 +34,18 @@ testowe ze statystykami.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 mv $RPM_BUILD_ROOT%{_bindir}/prove{,.pl}
 
 %clean
@@ -55,12 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
-%{perl_vendorlib}/Test/*.pm
-%{_mandir}/man3/*
-%{_examplesdir}/%{name}-%{version}
+%doc Changes*
 %attr(755,root,root) %{_bindir}/prove.pl
-%{_mandir}/man1/prove.1p*
 %{perl_vendorlib}/App/*.pm
 %{perl_vendorlib}/App/Prove/*.pm
 %{perl_vendorlib}/App/Prove/State/*.pm
@@ -75,3 +69,50 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/TAP/Parser/Scheduler/*.pm
 %{perl_vendorlib}/TAP/Parser/Source/*.pm
 %{perl_vendorlib}/TAP/Parser/YAMLish/*.pm
+%{perl_vendorlib}/Test/*.pm
+%{perl_vendorlib}/Test/*.pod
+%{_mandir}/man1/prove.1p*
+%{_mandir}/man3/App::Prove.3pm*
+%{_mandir}/man3/App::Prove::State.3pm*
+%{_mandir}/man3/App::Prove::State::Result.3pm*
+%{_mandir}/man3/App::Prove::State::Result::Test.3pm*
+%{_mandir}/man3/TAP::Base.3pm*
+%{_mandir}/man3/TAP::Formatter::Base.3pm*
+%{_mandir}/man3/TAP::Formatter::Color.3pm*
+%{_mandir}/man3/TAP::Formatter::Console.3pm*
+%{_mandir}/man3/TAP::Formatter::Console::ParallelSession.3pm*
+%{_mandir}/man3/TAP::Formatter::Console::Session.3pm*
+%{_mandir}/man3/TAP::Formatter::File.3pm*
+%{_mandir}/man3/TAP::Formatter::File::Session.3pm*
+%{_mandir}/man3/TAP::Formatter::Session.3pm*
+%{_mandir}/man3/TAP::Harness.3pm*
+%{_mandir}/man3/TAP::Object.3pm*
+%{_mandir}/man3/TAP::Parser.3pm*
+%{_mandir}/man3/TAP::Parser::Aggregator.3pm*
+%{_mandir}/man3/TAP::Parser::Grammar.3pm*
+%{_mandir}/man3/TAP::Parser::Iterator.3pm*
+%{_mandir}/man3/TAP::Parser::Iterator::Array.3pm*
+%{_mandir}/man3/TAP::Parser::Iterator::Process.3pm*
+%{_mandir}/man3/TAP::Parser::Iterator::Stream.3pm*
+%{_mandir}/man3/TAP::Parser::IteratorFactory.3pm*
+%{_mandir}/man3/TAP::Parser::Multiplexer.3pm*
+%{_mandir}/man3/TAP::Parser::Result.3pm*
+%{_mandir}/man3/TAP::Parser::Result::Bailout.3pm*
+%{_mandir}/man3/TAP::Parser::Result::Comment.3pm*
+%{_mandir}/man3/TAP::Parser::Result::Plan.3pm*
+%{_mandir}/man3/TAP::Parser::Result::Pragma.3pm*
+%{_mandir}/man3/TAP::Parser::Result::Test.3pm*
+%{_mandir}/man3/TAP::Parser::Result::Unknown.3pm*
+%{_mandir}/man3/TAP::Parser::Result::Version.3pm*
+%{_mandir}/man3/TAP::Parser::Result::YAML.3pm*
+%{_mandir}/man3/TAP::Parser::ResultFactory.3pm*
+%{_mandir}/man3/TAP::Parser::Scheduler.3pm*
+%{_mandir}/man3/TAP::Parser::Scheduler::Job.3pm*
+%{_mandir}/man3/TAP::Parser::Scheduler::Spinner.3pm*
+%{_mandir}/man3/TAP::Parser::Source.3pm*
+%{_mandir}/man3/TAP::Parser::Source::Perl.3pm*
+%{_mandir}/man3/TAP::Parser::Utils.3pm*
+%{_mandir}/man3/TAP::Parser::YAMLish::Reader.3pm*
+%{_mandir}/man3/TAP::Parser::YAMLish::Writer.3pm*
+%{_mandir}/man3/Test::HACKING.3pm*
+%{_mandir}/man3/Test::Harness.3pm*
