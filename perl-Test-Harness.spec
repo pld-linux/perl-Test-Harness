@@ -9,13 +9,13 @@ Summary:	Test::Harness - run Perl standard test scripts with statistics
 Summary(pl.UTF-8):	Test::Harness - uruchamianie perlowych skryptów testowych ze statystykami
 Name:		perl-Test-Harness
 # NOTE: version 2.64 in perl-modules-5.10.0
-Version:	3.17
-Release:	2
+Version:	3.22
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Test/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	d4b9f3bf6bd7fdc9f03c66a352a2c0da
+# Source0-md5:	017311ee9a4549a0885e1b9cb5fca3f5
 URL:		http://search.cpan.org/dist/Test-Harness/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -67,7 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/TAP/Parser/Iterator/*.pm
 %{perl_vendorlib}/TAP/Parser/Result/*.pm
 %{perl_vendorlib}/TAP/Parser/Scheduler/*.pm
-%{perl_vendorlib}/TAP/Parser/Source/*.pm
+%dir %{perl_vendorlib}/TAP/Parser/SourceHandler
+%{perl_vendorlib}/TAP/Parser/SourceHandler/*.pm
 %{perl_vendorlib}/TAP/Parser/YAMLish/*.pm
 %{perl_vendorlib}/Test/*.pm
 %{perl_vendorlib}/Test/*.pod
@@ -110,7 +111,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/TAP::Parser::Scheduler::Job.3pm*
 %{_mandir}/man3/TAP::Parser::Scheduler::Spinner.3pm*
 %{_mandir}/man3/TAP::Parser::Source.3pm*
-%{_mandir}/man3/TAP::Parser::Source::Perl.3pm*
+%{_mandir}/man3/TAP::Parser::SourceHandler.3pm*
+%{_mandir}/man3/TAP::Parser::SourceHandler::Executable.3pm*
+%{_mandir}/man3/TAP::Parser::SourceHandler::File.3pm*
+%{_mandir}/man3/TAP::Parser::SourceHandler::Handle.3pm*
+%{_mandir}/man3/TAP::Parser::SourceHandler::Perl.3pm*
+%{_mandir}/man3/TAP::Parser::SourceHandler::RawTAP.3pm*
 %{_mandir}/man3/TAP::Parser::Utils.3pm*
 %{_mandir}/man3/TAP::Parser::YAMLish::Reader.3pm*
 %{_mandir}/man3/TAP::Parser::YAMLish::Writer.3pm*
