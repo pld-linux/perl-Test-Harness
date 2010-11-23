@@ -14,7 +14,7 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Test/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://search.cpan.org/CPAN/authors/id/A/AN/ANDYA/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	017311ee9a4549a0885e1b9cb5fca3f5
 URL:		http://search.cpan.org/dist/Test-Harness/
 BuildRequires:	perl-devel >= 1:5.8.0
