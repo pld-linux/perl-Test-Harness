@@ -8,14 +8,14 @@
 Summary:	Test::Harness - run Perl standard test scripts with statistics
 Summary(pl.UTF-8):	Test::Harness - uruchamianie perlowych skryptów testowych ze statystykami
 Name:		perl-Test-Harness
-# NOTE: version 2.64 in perl-modules-5.10.0
-Version:	3.22
+# NOTE: version 3.17 in perl-modules-5.12.3
+Version:	3.23
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/A/AN/ANDYA/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	017311ee9a4549a0885e1b9cb5fca3f5
+Source0:	http://www.cpan.org/modules/by-module/Test/ANDYA/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	b61bf048f96e9114018b669bc79ebac8
 URL:		http://search.cpan.org/dist/Test-Harness/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -48,6 +48,11 @@ rm -rf $RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_bindir}/prove{,.pl}
 
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorlib}/TAP/Harness/Beyond.pod
+# for TAP::Harness developers
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorlib}/Test/HACKING.pod \
+	$RPM_BUILD_ROOT%{_mandir}/man3/Test::HACKING.3pm
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -55,14 +60,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes*
 %attr(755,root,root) %{_bindir}/prove.pl
-%{perl_vendorlib}/App/*.pm
+%{perl_vendorlib}/App/Prove.pm
 %{perl_vendorlib}/App/Prove/*.pm
 %{perl_vendorlib}/App/Prove/State/*.pm
 %{perl_vendorlib}/App/Prove/State/Result/*.pm
-%{perl_vendorlib}/TAP/*.pm
+%{perl_vendorlib}/TAP/Base.pm
 %{perl_vendorlib}/TAP/Formatter/*.pm
 %{perl_vendorlib}/TAP/Formatter/Console/*.pm
 %{perl_vendorlib}/TAP/Formatter/File/*.pm
+%{perl_vendorlib}/TAP/Harness.pm
+%{perl_vendorlib}/TAP/Object.pm
+%{perl_vendorlib}/TAP/Parser.pm
 %{perl_vendorlib}/TAP/Parser/*.pm
 %{perl_vendorlib}/TAP/Parser/Iterator/*.pm
 %{perl_vendorlib}/TAP/Parser/Result/*.pm
@@ -70,8 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorlib}/TAP/Parser/SourceHandler
 %{perl_vendorlib}/TAP/Parser/SourceHandler/*.pm
 %{perl_vendorlib}/TAP/Parser/YAMLish/*.pm
-%{perl_vendorlib}/Test/*.pm
-%{perl_vendorlib}/Test/*.pod
+%{perl_vendorlib}/Test/Harness.pm
 %{_mandir}/man1/prove.1p*
 %{_mandir}/man3/App::Prove.3pm*
 %{_mandir}/man3/App::Prove::State.3pm*
@@ -87,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/TAP::Formatter::File::Session.3pm*
 %{_mandir}/man3/TAP::Formatter::Session.3pm*
 %{_mandir}/man3/TAP::Harness.3pm*
+%{_mandir}/man3/TAP::Harness::Beyond.3pm*
 %{_mandir}/man3/TAP::Object.3pm*
 %{_mandir}/man3/TAP::Parser.3pm*
 %{_mandir}/man3/TAP::Parser::Aggregator.3pm*
@@ -120,5 +128,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/TAP::Parser::Utils.3pm*
 %{_mandir}/man3/TAP::Parser::YAMLish::Reader.3pm*
 %{_mandir}/man3/TAP::Parser::YAMLish::Writer.3pm*
-%{_mandir}/man3/Test::HACKING.3pm*
 %{_mandir}/man3/Test::Harness.3pm*
