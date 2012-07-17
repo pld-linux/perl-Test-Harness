@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Test::Harness - uruchamianie perlowych skryptów testowych ze
 Name:		perl-Test-Harness
 # NOTE: version 3.17 in perl-modules-5.12.3
 Version:	3.25
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -70,6 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/TAP/Formatter/*.pm
 %{perl_vendorlib}/TAP/Formatter/Console/*.pm
 %{perl_vendorlib}/TAP/Formatter/File/*.pm
+%dir %{perl_vendorlib}/TAP/Harness
 %{perl_vendorlib}/TAP/Harness.pm
 %{perl_vendorlib}/TAP/Object.pm
 %{perl_vendorlib}/TAP/Parser.pm
