@@ -9,13 +9,13 @@ Summary:	Test::Harness - run Perl standard test scripts with statistics
 Summary(pl.UTF-8):	Test::Harness - uruchamianie perlowych skryptów testowych ze statystykami
 Name:		perl-Test-Harness
 # NOTE: version 3.26 in perl-modules-5.18.0
-Version:	3.28
+Version:	3.30
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Test/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	e71faf73830f249e2eb569a52362c106
+# Source0-md5:	c1ff25da5dfdf77adea13dc3465638dd
 URL:		http://search.cpan.org/dist/Test-Harness/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -70,8 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/TAP/Formatter/*.pm
 %{perl_vendorlib}/TAP/Formatter/Console/*.pm
 %{perl_vendorlib}/TAP/Formatter/File/*.pm
-%dir %{perl_vendorlib}/TAP/Harness
 %{perl_vendorlib}/TAP/Harness.pm
+%dir %{perl_vendorlib}/TAP/Harness
+%{perl_vendorlib}/TAP/Harness/Env.pm
 %{perl_vendorlib}/TAP/Object.pm
 %{perl_vendorlib}/TAP/Parser.pm
 %{perl_vendorlib}/TAP/Parser/*.pm
@@ -98,6 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/TAP::Formatter::Session.3pm*
 %{_mandir}/man3/TAP::Harness.3pm*
 %{_mandir}/man3/TAP::Harness::Beyond.3pm*
+%{_mandir}/man3/TAP::Harness::Env.3pm*
 %{_mandir}/man3/TAP::Object.3pm*
 %{_mandir}/man3/TAP::Parser.3pm*
 %{_mandir}/man3/TAP::Parser::Aggregator.3pm*
@@ -128,7 +130,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/TAP::Parser::SourceHandler::Handle.3pm*
 %{_mandir}/man3/TAP::Parser::SourceHandler::Perl.3pm*
 %{_mandir}/man3/TAP::Parser::SourceHandler::RawTAP.3pm*
-%{_mandir}/man3/TAP::Parser::Utils.3pm*
 %{_mandir}/man3/TAP::Parser::YAMLish::Reader.3pm*
 %{_mandir}/man3/TAP::Parser::YAMLish::Writer.3pm*
 %{_mandir}/man3/Test::Harness.3pm*
