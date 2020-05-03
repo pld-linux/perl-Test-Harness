@@ -15,9 +15,10 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Test/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	c794906473f88d6b74194e2d56f16bd6
-URL:		http://search.cpan.org/dist/Test-Harness/
+URL:		https://metacpan.org/release/Test-Harness
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 Provides:	perl-TAP-Parser = %{version}
 Obsoletes:	perl-TAP-Parser < 1.0
 BuildArch:	noarch
